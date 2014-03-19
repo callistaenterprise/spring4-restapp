@@ -1,4 +1,3 @@
-
 # Sample Rest Application
 
 
@@ -13,7 +12,6 @@ each dependency and plugin version is specified at one location.
 
 ### TO DO (not yet demonstrated)
 
-* Soft configuration changes (how to override hard-wired configuration with properties files)
 * Proper application error handling
 * Trace logging
 * Fast-lane queries
