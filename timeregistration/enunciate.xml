@@ -1,0 +1,12 @@
+<enunciate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="http://enunciate.codehaus.org/schemas/enunciate-1.21.xsd">
+  <services>
+    <est defaultRestSubcontext="/"/>
+  </services>
+
+  <modules>
+    <spring-app disabled="true" />
+    <docs docsDir="/"  title="Patricia REST Service API"
+	  copyright="Patrix"/>
+  </modules>
+</enunciate>
