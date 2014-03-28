@@ -41,11 +41,6 @@ public class TimeRegistrationController {
 		return new ResponseEntity<TimeLogMessage>(added, HttpStatus.CREATED);
 	}
 
-    @RequestMapping(method = RequestMethod.POST, value = "/x")
-    public ResponseEntity<String> addTimeLogX(@RequestBody final String msg) {
-        log.debug("post: {}", msg);
-        return new ResponseEntity<String>("hello", HttpStatus.OK);
-    }
 
     @RequestMapping(method = RequestMethod.DELETE, value = "/{id}")
 	public ResponseEntity<TimeLogMessage> deleteTimeLog(@PathVariable final String id) {
