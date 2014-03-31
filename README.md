@@ -14,7 +14,7 @@ each dependency and plugin version is specified at one location.
 
 * Proper application error handling
 * Trace logging
-* Fast-lane queries
+* Fast-lane queries (Spring HATEOAS test exists)
 * Interaction with "frontend" and shared authentication
 
 ### Quick start
