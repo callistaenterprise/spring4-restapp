@@ -44,4 +44,12 @@ public interface TimeRegistrationService {
      * @return the matching list of time log messages.
      */
 	List<TimeLogMessage> findRecentTimeLogMessages(final Date sinceTimestamp);
+
+    /**
+     * Creates test data.
+     *
+     * @param n the number of case entries.
+     */
+    void createTestData(final int n);
+
 }
