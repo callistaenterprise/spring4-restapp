@@ -13,6 +13,9 @@ import javax.persistence.TemporalType;
 
 import lombok.Data;
 
+/**
+ * Example time log entity.
+ */
 @Data
 @Entity(name = "time_log")
 public class TimeLogEntity {
