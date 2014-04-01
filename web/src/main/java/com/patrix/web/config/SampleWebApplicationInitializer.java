@@ -22,7 +22,7 @@ import java.util.Set;
  * Created by peter on 2014-03-17.
  */
 @Slf4j
-public class PAWebApplicationInitializer implements WebApplicationInitializer {
+public class SampleWebApplicationInitializer implements WebApplicationInitializer {
 
     protected boolean isTest(final String[] profiles) {
         for (final String profile : profiles) {
