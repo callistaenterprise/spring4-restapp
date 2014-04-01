@@ -25,17 +25,20 @@ public class TestServiceImpl implements TestService {
     private int numEntities;
 
     @Override
-    public void createTestData() {
-        final List<CaseEntity> list = new ArrayList<CaseEntity>(numEntities);
+    public long createTestData() {
         for (int i = 0; i < numEntities; i++) {
-            list.add(createCaseEntity(i));
+            caseRepository.save(createCaseEntity(i));
         }
-        caseRepository.save(list);
+        caseRepository.flush();
+        return caseRepository.count();
     }
 
     @Override
-    public void deleteTestData() {
+    public long deleteTestData() {
+        final long num = caseRepository.count();
         caseRepository.deleteAll();
+        caseRepository.flush();
+        return num;
     }
 
     private CaseEntity createCaseEntity(final int n) {

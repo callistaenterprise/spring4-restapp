@@ -1,12 +1,8 @@
 package com.patrix.timeregistration.business.impl;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import com.patrix.persistence.entity.CaseEntity;
-import com.patrix.persistence.entity.CaseReferenceEntity;
-import com.patrix.persistence.repository.CaseRepository;
 import lombok.extern.slf4j.Slf4j;
 
 import org.apache.commons.lang.StringUtils;
@@ -27,14 +23,12 @@ import com.patrix.util.UtilService;
 public class TimeRegistrationServiceImpl implements TimeRegistrationService {
 
 	// Example of how to use a configuration property 
-	private @Value("${timeregistration.hello}") String hello;
+    @Value("${timeregistration.hello}")
+    private String hello;
 	
 	@Autowired
 	private TimeLogRepository timeLogRepository;
 
-    @Autowired
-    private CaseRepository caseRepository;
-	
 	@Autowired
 	private UtilService utilService;
 		

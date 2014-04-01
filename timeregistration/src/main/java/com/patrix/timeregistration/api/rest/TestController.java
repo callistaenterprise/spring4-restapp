@@ -25,16 +25,16 @@ public class TestController {
 
     @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<String> create() {
-        log.debug("get:");
-        testService.createTestData();
-        return new ResponseEntity<String>("{ \"status\": \"OK\" }", HttpStatus.CREATED);
+        log.debug("get");
+        final String r = String.format("{ \"status\": \"OK\", \"entries\": %d }", testService.createTestData());
+        return new ResponseEntity<String>(r, HttpStatus.CREATED);
     }
 
     @RequestMapping(method = RequestMethod.DELETE)
     public ResponseEntity<String> delete() {
-        log.debug("get:");
-        testService.deleteTestData();
-        return new ResponseEntity<String>("{ \"status\": \"OK\" }", HttpStatus.OK);
+        log.debug("delete");
+        final String r = String.format("{ \"status\": \"OK\", \"entries\": %d }", testService.deleteTestData());
+        return new ResponseEntity<String>(r, HttpStatus.OK);
     }
 
 }

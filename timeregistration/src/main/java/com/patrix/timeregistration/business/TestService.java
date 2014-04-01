@@ -7,6 +7,13 @@ import org.springframework.context.annotation.Profile;
  */
 @Profile(value = { "test"})
 public interface TestService {
-    void createTestData();
-    void deleteTestData();
+    /**
+     * Creates test data.
+     */
+    long createTestData();
+
+    /**
+     * Deletes test data.
+     */
+    long deleteTestData();
 }

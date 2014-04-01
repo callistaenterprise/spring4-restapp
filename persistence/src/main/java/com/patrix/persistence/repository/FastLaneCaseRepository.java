@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
  * Fast lane case repository.
  */
 @Repository
-@RepositoryRestResource(exported = true)
+@RepositoryRestResource(path = "cases", exported = true)
 public interface FastLaneCaseRepository extends FastLaneRepository<CaseEntity, String> {
 }
