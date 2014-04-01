@@ -5,7 +5,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.stereotype.Repository;
 
 /**
- * Case repository.
+ * Fast lane case repository.
  */
 @Repository
 @RepositoryRestResource(exported = true)

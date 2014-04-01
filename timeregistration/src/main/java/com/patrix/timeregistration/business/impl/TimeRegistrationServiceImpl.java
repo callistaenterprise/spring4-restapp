@@ -33,7 +33,7 @@ public class TimeRegistrationServiceImpl implements TimeRegistrationService {
 	private TimeLogRepository timeLogRepository;
 
     @Autowired
-    private CaseRepository caseEntityRepository;
+    private CaseRepository caseRepository;
 	
 	@Autowired
 	private UtilService utilService;
@@ -84,30 +84,6 @@ public class TimeRegistrationServiceImpl implements TimeRegistrationService {
 		return toTimeLogMessages(entities);
 	}
 
-    @Override
-    public void createTestData(final int n) {
-        final List<CaseEntity> list = new ArrayList<CaseEntity>(n);
-        for (int i = 0; i < n; i++) {
-            list.add(createCaseEntity(i));
-        }
-        caseEntityRepository.save(list);
-    }
-
-    private CaseEntity createCaseEntity(final int n) {
-        final CaseEntity caseEntity = new CaseEntity();
-        caseEntity.setCaseNumber("caseNumber-" + n);
-        caseEntity.setCaseCatchWord("none");
-        caseEntity.setCaseLocation("Sweden");
-        caseEntity.setCaseAbstract("This is an extremely useless abstract");
-        caseEntity.setCaseNumberExtension(String.valueOf((int)Math.random()*n));
-        for (int i = 0; i < 10; i++) {
-            final CaseReferenceEntity caseReferenceEntity = new CaseReferenceEntity();
-            caseReferenceEntity.setTypeLabel("Type-" + i);
-            caseReferenceEntity.setTypeName("TypeName");
-            caseEntity.addCaseReferenceEntity(caseReferenceEntity);
-        }
-        return caseEntity;
-    }
 
     //
 	private TimeLogEntity toTimeLogEntity(final TimeLogMessage timeLogMessage) {

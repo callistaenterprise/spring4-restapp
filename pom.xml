@@ -6,7 +6,7 @@
 	<artifactId>sample-application-parent</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
-	<name>Patricia Sample Web Application</name>
+	<name>Sample Web Application</name>
 
 	<modules>
 		<module>util</module>

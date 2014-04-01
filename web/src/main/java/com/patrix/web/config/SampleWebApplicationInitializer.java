@@ -2,6 +2,7 @@ package com.patrix.web.config;
 
 import com.patrix.persistence.config.ProductionJPAConfiguration;
 import com.patrix.persistence.config.TestJPAConfiguration;
+
 import com.patrix.timeregistration.config.TimeRegistrationConfiguration;
 import com.patrix.util.config.UtilConfiguration;
 import lombok.extern.slf4j.Slf4j;
@@ -16,7 +17,7 @@ import javax.servlet.FilterRegistration;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Created by peter on 2014-03-17.
@@ -24,13 +25,10 @@ import java.util.Set;
 @Slf4j
 public class SampleWebApplicationInitializer implements WebApplicationInitializer {
 
-    protected boolean isTest(final String[] profiles) {
-        for (final String profile : profiles) {
-            if ("test".equals(profile)) {
-                return true;
-            }
-        }
-        return false;
+    private static List<String> activeProfiles;
+
+    protected static boolean isProfileActive(final String profile) {
+        return activeProfiles.contains(profile);
     }
 
     protected Class<?>[] getRootConfigurationClasses(boolean test) {
@@ -46,7 +44,9 @@ public class SampleWebApplicationInitializer implements WebApplicationInitialize
     protected WebApplicationContext createRootContext(ServletContext servletContext) {
         AnnotationConfigWebApplicationContext rootContext = new AnnotationConfigWebApplicationContext();
 
-        rootContext.register(getRootConfigurationClasses(isTest(rootContext.getEnvironment().getActiveProfiles())));
+        activeProfiles = Arrays.asList(rootContext.getEnvironment().getActiveProfiles());
+
+        rootContext.register(getRootConfigurationClasses(isProfileActive("test")));
         rootContext.refresh();
 
         servletContext.addListener(new ContextLoaderListener(rootContext));

@@ -45,7 +45,7 @@ public class CaseEntity {
     @Temporal(TemporalType.TIMESTAMP)
     private Date lastEditTimestamp;
 
-    @OneToMany(mappedBy = "caseEntity", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, orphanRemoval = true)
+    @OneToMany(mappedBy = "caseEntity", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<CaseReferenceEntity> caseReferenceEntities = new LinkedList<CaseReferenceEntity>();
 
     @PrePersist

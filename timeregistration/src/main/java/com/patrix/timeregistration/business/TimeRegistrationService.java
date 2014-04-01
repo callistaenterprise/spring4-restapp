@@ -26,7 +26,7 @@ public interface TimeRegistrationService {
      * Deletes a time log message.
      * @param id the id.
      *
-     * @return the deletetd message.
+     * @return the deleted message.
      */
 	TimeLogMessage deleteTimeLogMessage(final String id);
 
@@ -38,18 +38,10 @@ public interface TimeRegistrationService {
 	List<TimeLogMessage> findAllTimeLogMessages();
 
     /**
-     * Returns time log messsages created since a timestamp.
+     * Returns time log messages created since a timestamp.
      *
      * @param sinceTimestamp the timestamp.
      * @return the matching list of time log messages.
      */
 	List<TimeLogMessage> findRecentTimeLogMessages(final Date sinceTimestamp);
-
-    /**
-     * Creates test data.
-     *
-     * @param n the number of case entries.
-     */
-    void createTestData(final int n);
-
 }

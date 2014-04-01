@@ -4,8 +4,9 @@ import java.sql.SQLException;
 
 import javax.sql.DataSource;
 
-import com.patrix.persistence.repository.CaseReferenceRepository;
 import com.patrix.persistence.repository.CaseRepository;
+import com.patrix.persistence.repository.FastLaneCaseReferenceRepository;
+import com.patrix.persistence.repository.FastLaneCaseRepository;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.FilterType;
@@ -20,7 +21,7 @@ import com.patrix.persistence.repository.TimeLogRepository;
 
 @Configuration
 @EnableJpaRepositories(basePackages = "com.patrix.persistence.repository",
-includeFilters = @ComponentScan.Filter(value = {TimeLogRepository.class, CaseRepository.class, CaseReferenceRepository.class}, type = FilterType.ASSIGNABLE_TYPE))
+includeFilters = @ComponentScan.Filter(value = {TimeLogRepository.class, CaseRepository.class, FastLaneCaseRepository.class, FastLaneCaseReferenceRepository.class}, type = FilterType.ASSIGNABLE_TYPE))
 @Import(RepositoryRestMvcConfiguration.class)
 @EnableTransactionManagement
 public class TestJPAConfiguration extends AbstractJPAConfiguration {
